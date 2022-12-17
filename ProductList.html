@@ -97,7 +97,7 @@
                             </defs>
                         </svg>
 
-                        <input type="text" placeholder="Ara..." class="search-input" id="search-input" onkeyup="Filter.Actions.searchList()">
+                        <input type="text" placeholder="Ara..." class="search-input" id="search-input" onkeyup="Filter.Actions.searchList(this)">
                     </div>
 
                     <div class="c-item-01-B">
@@ -118,7 +118,7 @@
 
                             <input type="text" placeholder="Kategori ara..." class="search-input" id="search-category" onkeyup="Filter.Actions.searchCategory()">
                         </div>
-                        <ul id="category-list">
+                        <ul id="category-list" onchange="Filter.Actions.handleCategoryChange()">
                             <!-- kategori listesi gelecek -->
                         </ul>
 

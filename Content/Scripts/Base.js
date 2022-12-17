@@ -2,7 +2,7 @@ Filter={
     Apis:{
         fetchCategoryUrl:"https://dummyjson.com/products/categories",
         fetchAllItems:"https://dummyjson.com/products",
-        fetchSearch:"https://dummyjson.com/products/search?q=",
+        
     },
     Elements:{
         categoryList:document.getElementById("category-list"),
@@ -58,19 +58,62 @@ Filter={
             fetch(Filter.Apis.fetchAllItems)
             .then(res=>res.json())
             .then(res=>{
-                Filter.Elements.products=res.products;
+                Filter.Status.products=res.products;
                 Filter.Actions.appendListToHtml();
             })
 
 
 
         },
-        searchList:()=>{
-            var searchParam=document.getElementById("search-input").value;
-            fetch(Filter.Apis.fetchSearch+searchParam)
+        searchList:(param)=>{
+            
+            Filter.Status.querry=param.value;
+            Filter.Actions.filter();
+            
+
+        },handleCategoryChange:()=>{
+          
+            const checkedCategories=document.querySelectorAll("#category-list input:checked");
+
+            const checkedIds=[];
+            for (let i = 0; i < checkedCategories.length; i++) {
+                const element=checkedCategories[i];
+                checkedIds.push(element.getAttribute("id"));
+                
+            }
+
+            Filter.Status.selectedCategories=checkedIds;
+
+            Filter.Actions.filter();
+            
+
+        },
+        filter:()=>{
+            
+            let apiurl="";
+            if(Filter.Status.querry){
+
+                apiurl=Filter.Apis.fetchAllItems+"/search?q="+Filter.Status.querry;
+
+            }else{
+                apiurl=Filter.Apis.fetchAllItems;
+            }
+
+            fetch(apiurl)
             .then(res=>res.json())
             .then(res=>{
-                Filter.Elements.products=res.products;
+               
+                var selectedCategories=Filter.Status.selectedCategories;
+                if (selectedCategories.length>0) {
+
+                    Filter.Status.products=res.products.filter(x=>selectedCategories.includes(x.category));
+                    
+                }else{
+                    Filter.Status.products=res.products;
+
+                }
+
+
                 Filter.Actions.appendListToHtml();
             })
 
@@ -87,7 +130,7 @@ Filter={
                     
                     if( cloneArray.includes(Filter.Status.categories[i]) ){
 
-                        Filter.Elements.categoryList.querySelector("#"+Filter.Status.categories[i]).parentElement.style.display="block";
+                        Filter.Elements.categoryList.querySelector("#"+Filter.Status.categories[i]).parentElement.style.display="flex";
                         Filter.Elements.categoryList.querySelector("#"+Filter.Status.categories[i]).checked=false;
                     }else{
                         Filter.Elements.categoryList.querySelector("#"+Filter.Status.categories[i]).parentElement.style.display="none";
@@ -100,9 +143,10 @@ Filter={
             
         },
         appendListToHtml:()=>{
+            
             Filter.Elements.productList.innerHTML="";
-            for (let i = 0; i < Filter.Elements.products.length; i++) {
-                const product = Filter.Elements.products[i];
+            for (let i = 0; i < Filter.Status.products.length; i++) {
+                const product = Filter.Status.products[i];
                 var div=document.createElement("div");
                 div.innerHTML=Filter.Elements.cardTemp.innerHTML;
                 div.querySelector("a").setAttribute("href","/product?id="+product.id);
