@@ -1,8 +1,8 @@
 Filter={
     Apis:{
         fetchCategoryUrl:"https://dummyjson.com/products/categories",
-        fetchAllItems:"https://dummyjson.com/products?limit=100",
-        fetchSearch:"https://dummyjson.com/products/search?limit=100&q=",
+        fetchAllItems:"https://dummyjson.com/products",
+        fetchSearch:"https://dummyjson.com/products/search?q=",
     },
     Elements:{
         categoryList:document.getElementById("category-list"),
@@ -13,6 +13,7 @@ Filter={
     },
     Status:{
         categories:[],
+        products:[],
         querry:"",
         selectedCategories:"",
         sort:""
@@ -20,7 +21,7 @@ Filter={
     Actions:{
         init:()=>{
             Filter.Actions.getAllCategories();
-            Filter.Actions.getAllItems();
+            Filter.Actions.getAllProducts();
         },
         appendCategoriesToHtml:()=>{
             Filter.Elements.categoryList.innerHTML="";
@@ -53,11 +54,12 @@ Filter={
         clear:()=>{
             
         },
-        getAllItems:()=>{
+        getAllProducts:()=>{
             fetch(Filter.Apis.fetchAllItems)
             .then(res=>res.json())
             .then(res=>{
-                Filter.Actions.appendListToHtml(res.products);
+                Filter.Elements.products=res.products;
+                Filter.Actions.appendListToHtml();
             })
 
 
@@ -68,7 +70,8 @@ Filter={
             fetch(Filter.Apis.fetchSearch+searchParam)
             .then(res=>res.json())
             .then(res=>{
-                Filter.Actions.appendListToHtml(res.products);
+                Filter.Elements.products=res.products;
+                Filter.Actions.appendListToHtml();
             })
 
         },
@@ -77,11 +80,7 @@ Filter={
             var searchParam=document.getElementById("search-category").value; 
             var cloneArray=[...Filter.Status.categories];
            
-
-            if(searchParam!=""){
-                function _filter(data){
-                    return data.includes(searchParam);
-                }
+                
                 cloneArray=cloneArray.filter(x=>x.toLocaleLowerCase().includes(searchParam));
 
                 for (let i = 0; i <Filter.Status.categories.length; i++) {
@@ -96,21 +95,21 @@ Filter={
                     
                 }
 
-            }else{
-                Filter.Actions.getAllCategories();
-            }
+            
             
             
         },
-        appendListToHtml:(param)=>{
+        appendListToHtml:()=>{
             Filter.Elements.productList.innerHTML="";
-            for (let i = 0; i < param.length; i++) {
-                const ctg = param[i];
+            for (let i = 0; i < Filter.Elements.products.length; i++) {
+                const product = Filter.Elements.products[i];
                 var div=document.createElement("div");
                 div.innerHTML=Filter.Elements.cardTemp.innerHTML;
-                div.querySelector("img").setAttribute("src",ctg.images[0]);
-                div.querySelector("h5").innerText=ctg.title; 
-                div.querySelector("p").innerText=ctg.description;
+                div.querySelector("a").setAttribute("href","/product?id="+product.id);
+                div.querySelector("img").setAttribute("src",product.thumbnail);
+                div.querySelector("img").setAttribute("alt",product.title);
+                div.querySelector("h5").innerText=product.title; 
+                div.querySelector("p").innerText=product.description;
                 Filter.Elements.productList.appendChild(div.querySelector("a"));
             } 
         },
