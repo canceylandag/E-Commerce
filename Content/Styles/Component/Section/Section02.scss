@@ -1,0 +1,109 @@
+﻿@import "../../Base/Global.scss";
+@import "../../Base/Colour.scss";
+
+
+/* Common xs1, xs2 */
+@media all and (max-width: #{($mq-sm1 - 1) + "px"}) {
+    .section-02 {
+        padding: 48px 0;
+
+        .c-wrapper {
+            
+
+
+        }
+
+
+
+
+    }
+}
+
+/* Common sm1, sm2 tablet */
+@media all and (min-width: #{($mq-sm1) + "px"}) and (max-width: #{($mq-md - 1) + "px"}) {
+    .section-02 {
+        padding: 64px 0;
+
+        .c-wrapper {
+            
+
+        }
+
+
+
+    }
+
+}
+
+@media all and (min-width: #{$mq-md + "px"}) {
+    .section-02 {
+        padding: 80px 0;
+
+        .c-wrapper {
+            #product-title{
+                margin-bottom: 50px;
+            }
+            #product-detail{
+                display: flex;
+                flex-direction: row;
+                #picture-side{
+                    #big-picture{
+                        margin-bottom: 25px;
+                    }
+                    #picture-list{
+                        display: flex;
+                        flex-direction: row;
+                        img{
+                            width: 100px;
+                            height: 100px;
+                            object-fit: cover;
+                        }
+                    }
+                }
+                #detail-side{
+                    margin-left: 50px;
+                    #detail-title{
+                        margin-bottom: 20px;
+
+                    }
+                    .detail-rating{
+                        .stars-outer{
+                            position: relative;
+                            display: inline-block;
+                            .stars-inner{
+                                position: absolute;
+                                top:0;
+                                left: 0;
+                                white-space: wrap;
+                                overflow: hidden;
+                                width: 0;
+                                 &::before{
+                                    content: "\f005 \f005 \f005 \f005 \f005";
+                                    font-family: "Font Awesome 5 Free";
+                                    font-weight: 900;
+                                    color:#f8ce0b;
+                                }
+                            }
+                            &::before{
+                                content: "\f005 \f005 \f005 \f005 \f005";
+                                font-family: "Font Awesome 5 Free";
+                                font-weight: 900;
+                                color:#ccc;
+                            }
+                        }
+                    }
+                    #detail-price{
+                        margin-bottom: 20px;
+                    }
+                    #detail-description{
+                        margin-bottom: 20px;
+                    }
+                }
+            }
+
+        }
+
+
+
+    }
+}

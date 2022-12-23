@@ -1,0 +1,120 @@
+/* Common xs1, xs2 */
+@media all and (max-width: 767px) {
+  .micro-other-02 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .micro-other-02 .c-item-01 {
+    margin-bottom: 12px;
+  }
+  .micro-other-02 .c-item-02 {
+    margin-bottom: 12px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    color: #000000;
+  }
+  .micro-other-02 .c-item-03 {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    color: #532C59;
+  }
+}
+/* Common sm1, sm2 tablet */
+@media all and (min-width: 768px) and (max-width: 1319px) {
+  .micro-other-02 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .micro-other-02 .c-item-01 {
+    margin-bottom: 12px;
+  }
+  .micro-other-02 .c-item-02 {
+    margin-bottom: 12px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    color: #000000;
+  }
+  .micro-other-02 .c-item-03 {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    color: #532C59;
+  }
+}
+@media all and (min-width: 1320px) {
+  .micro-other-02 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .micro-other-02 .c-item-01 {
+    margin-bottom: 12px;
+  }
+  .micro-other-02 .c-item-02 {
+    margin-bottom: 12px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    color: #000000;
+  }
+  .micro-other-02 .c-item-03 {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    color: #532C59;
+    max-width: 269px;
+  }
+}/*# sourceMappingURL=02.css.map */x;
+    color: #532C59;
+  }
+}
+@media all and (min-width: 1320px) {
+  .card-02 {
+    display: block;
+    background: #FFFFFF;
+    border: 1px solid #D6BCFA;
+    border-radius: 10px;
+    padding: 24px;
+  }
+  .card-02 .c-item-01 {
+    margin-bottom: 16px;
+    display: flex;
+  }
+  .card-02 .c-item-01 .c-item-01-A {
+    width: 48px;
+    height: 48px;
+    -o-object-fit: cover;
+       object-fit: cover;
+    margin-right: 12px;
+  }
+  .card-02 .c-item-01 .c-item-01-B .c-unit-01 {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: #000000;
+  }
+  .card-02 .c-item-01 .c-item-01-B .c-unit-02 {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+    opacity: 0.5;
+  }
+  .card-02 .c-item-02 {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #532C59;
+  }
+}/*# sourceMappingURL=02.css.map */

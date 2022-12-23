@@ -1,0 +1,73 @@
+/* Common xs1, xs2 */
+@media all and (max-width: 767px) {
+  .section-02 {
+    padding: 48px 0;
+  }
+}
+/* Common sm1, sm2 tablet */
+@media all and (min-width: 768px) and (max-width: 1319px) {
+  .section-02 {
+    padding: 64px 0;
+  }
+}
+@media all and (min-width: 1320px) {
+  .section-02 {
+    padding: 80px 0;
+  }
+  .section-02 .c-wrapper #product-title {
+    margin-bottom: 50px;
+  }
+  .section-02 .c-wrapper #product-detail {
+    display: flex;
+    flex-direction: row;
+  }
+  .section-02 .c-wrapper #product-detail #picture-side #big-picture {
+    margin-bottom: 25px;
+  }
+  .section-02 .c-wrapper #product-detail #picture-side #picture-list {
+    display: flex;
+    flex-direction: row;
+  }
+  .section-02 .c-wrapper #product-detail #picture-side #picture-list img {
+    width: 100px;
+    height: 100px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .section-02 .c-wrapper #product-detail #detail-side {
+    margin-left: 50px;
+  }
+  .section-02 .c-wrapper #product-detail #detail-side #detail-title {
+    margin-bottom: 20px;
+  }
+  .section-02 .c-wrapper #product-detail #detail-side .detail-rating .stars-outer {
+    position: relative;
+    display: inline-block;
+  }
+  .section-02 .c-wrapper #product-detail #detail-side .detail-rating .stars-outer .stars-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: wrap;
+    overflow: hidden;
+    width: 0;
+  }
+  .section-02 .c-wrapper #product-detail #detail-side .detail-rating .stars-outer .stars-inner::before {
+    content: "\f005\f005\f005\f005\f005";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: #f8ce0b;
+  }
+  .section-02 .c-wrapper #product-detail #detail-side .detail-rating .stars-outer::before {
+    content: "\f005\f005\f005\f005\f005";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: #ccc;
+  }
+  .section-02 .c-wrapper #product-detail #detail-side #detail-price {
+    margin-bottom: 20px;
+  }
+  .section-02 .c-wrapper #product-detail #detail-side #detail-description {
+    margin-bottom: 20px;
+  }
+}/*# sourceMappingURL=Section02.css.map */
